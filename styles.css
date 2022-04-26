@@ -11,9 +11,10 @@ html {
 body {
   display: flex;
   justify-content: center;
-  align-content: center;
+  align-items: center;
   font-family: "Montserrat", sans-serif;
   color: rgb(29, 29, 29);
+  height: 100vh;
 }
 
 .grid-container {
@@ -31,12 +32,33 @@ body {
   border: 8px solid rgb(195, 195, 195);
   border-radius: 10px;
   width: 800px;
-  height: 500px;
-  margin: 0;
-  position: absolute;
-  top: 50%;
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
+  height: auto;
+}
+
+@media (max-width: 768px) {
+  .grid-container {
+    grid-template-areas:
+      "heading heading"
+      "search search"
+      "weather weather"
+      "content image"
+      "wind humidity"
+      "temp temp";
+
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 0.2fr 0.6fr 1.5fr 1.5fr 0.4fr 0.4fr;
+    width: auto;
+    height: auto;
+    position: absolute;
+    top: 0;
+  }
+  #weather {
+    border-bottom: 2px solid rgb(75, 75, 75);
+    background-color: rgba(93, 93, 93, 0.566);
+  }
+  #temp-container {
+    border-top: 2px solid rgb(218, 218, 218);
+  }
 }
 
 #heading {
